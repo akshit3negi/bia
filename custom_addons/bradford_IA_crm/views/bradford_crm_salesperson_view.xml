@@ -20,14 +20,14 @@
 
 
             <!-- First instance: visible only for new records -->
-        <xpath expr="//field[@name='team_id']" position="after">
+        <!-- <xpath expr="//field[@name='team_id']" position="after">
             <field name="sub_status" attrs="{'invisible': [('id', '!=', False)]}"/>
-        </xpath>
+        </xpath> -->
 
         <!-- Second instance: visible only for existing records -->
-        <xpath expr="//field[@name='phone']" position="after">
+        <!-- <xpath expr="//field[@name='phone']" position="after">
             <field name="sub_status" attrs="{'invisible': [('id', '=', False)]}"/>
-        </xpath>
+        </xpath> -->
 
 
 

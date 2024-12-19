@@ -4,4 +4,4 @@ class Employee(models.Model):
     _inherit = "crm.lead"
     
 
-    sub_status = fields.Many2one('bradford.substatus', string="Sub Status")
+    sub_status = fields.Many2one('bradford.substatus', string="Sub Status", domain="[('lead_status','=', stage_id)]")
