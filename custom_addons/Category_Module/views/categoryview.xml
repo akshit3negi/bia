@@ -1,0 +1,26 @@
+<odoo>
+    <!-- Category Views -->
+    <record id="view_category_tree" model="ir.ui.view">
+        <field name="name">category.tree</field>
+        <field name="model">mymodule.category</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_category_form" model="ir.ui.view">
+        <field name="name">category.form</field>
+        <field name="model">mymodule.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="status"/>
+                </group>
+            </form>
+        </field>
+    </record>
+</odoo>    

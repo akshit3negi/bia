@@ -1,0 +1,20 @@
+<odoo>
+    <record id="cron_update_meeting_status" model="ir.cron">
+        <field name="name">Update Meeting Status</field>
+        <field name="model_id" ref="model_bradford_meet"/>
+        <field name="state">code</field>
+        <field name="code">model.action_update_meeting_status()</field>
+        <field name="active">True</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+    </record>
+    <record id="cron_update_meeting_status2" model="ir.cron">
+        <field name="name">Update Meeting Status2</field>
+        <field name="model_id" ref="model_bradford_meet"/>
+        <field name="state">code</field>
+        <field name="code">model.action_update_meeting_status2()</field>
+        <field name="active">True</field>
+        <field name="interval_number">1</field>
+        <field name="interval_type">minutes</field>
+    </record>
+</odoo>

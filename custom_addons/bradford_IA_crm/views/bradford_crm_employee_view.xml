@@ -1,0 +1,75 @@
+<odoo>
+    <record id="view_crm_employee_form_custom" model="ir.ui.view">
+        <field name="name">hr.employee.form.custom</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_ids']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='coach_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='parent_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='mobile_phone']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//div[@class='oe_chatter']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//notebook" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+<!-- 'Launch Plan' Button -->
+            <xpath expr="//button[@name='219']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//field[@name='job_id']" position="after">
+                <field name="mobile" />
+                <field name="fax" />
+                <field name="im_type" />
+                <field name="im_name" />
+                <field name="notes" />
+            </xpath>
+            <xpath expr="//field[@name='work_phone']" position="before">
+                <field name="emp_status" />
+                <field name="reports_to" />
+            </xpath>
+
+
+            <xpath expr="//field[@name='work_email']" position="after">
+                <field name="address" />
+                <field name="city" />
+                <field name="country_id" />
+                <field name="state_id" />
+                <field name="postal_code" />
+            </xpath>
+        </field>
+    </record>
+
+
+    <!-- _____________ Graph _______________ -->
+    <record id="view_crm_employee_graph_custom" model="ir.ui.view">
+        <field name="name">hr.employee.graph.custom</field>
+        <field name="model">hr.employee</field>
+        <field name="arch" type="xml">
+            <graph string="Employee Statistics" type="bar" stacked="False">
+                <field name="department_id" type="row" />
+                <field name="job_id" type="row" />
+                <!-- <field name="reports_to" type="row"/>    
+                <field name="emp_status" type="row" />  -->
+                <field name="id" type="measure" />
+            </graph>
+        </field>
+    </record>
+    <record id="action_employee_custom" model="ir.actions.act_window">
+        <field name="name">Employees</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">kanban,tree,form,graph</field>
+    </record>
+
+</odoo>

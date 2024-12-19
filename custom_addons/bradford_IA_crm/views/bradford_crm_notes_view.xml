@@ -1,0 +1,171 @@
+<odoo>
+
+    <record id="view_notes_tree" model="ir.ui.view">
+        <field name="name">notes.tree</field>
+        <field name="model">bradford.notes</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="contact" />
+                <field name="relatedto" />
+                <field name="attach" widget="binary" />
+                <field name="createdby" />
+                <field name="exit" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_notes_form" model="ir.ui.view">
+        <field name="name">notes.form</field>
+        <field name="model">bradford.notes</field>
+        <field name="arch" type="xml">
+
+            <!-- <form>
+                <sheet>
+                    <group>
+                        <group>
+                        <field name="name" />
+                        <field name="contact" />
+                        <field name="attach" widget="binary" /> 
+                        <field name="note" />
+                        <field name="createdby" />
+                    </group>
+                    <group>
+                       <field name="relatedto" />
+                    </group>
+                    </group>
+                </sheet>
+                <sheet>
+                    
+                    <group>
+                        <field name="exit" />
+                        <field name="assignedto" />
+                    </group>
+                </sheet>
+            </form> -->
+
+
+            <!-- <form>
+                <notebook>
+                    <page string="New Note">
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="contact" />
+                                <field name="attach" widget="binary" />
+                                <field name="note" />
+                                <field name="createdby" />
+                            </group>
+                            <group>
+                                <field name="relatedto" />
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Other Details">
+                        <group>
+                            <field name="exit" />
+                            <field name="assignedto" />
+                        </group>
+                    </page>
+                </notebook>
+            </form> -->
+
+
+            <form>
+                <sheet>
+                    <separator string="New Note" colspan="4" />
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="contact" />
+                            <field name="attach" widget="binary" />
+                        </group>
+                        <group>
+                            <field name="exit" />
+                            <field name="relatedto" />
+                        </group>
+                    </group>
+                    <group>
+                        <field name="note" />
+                    </group>
+                    <separator string="Other" colspan="4" />
+                    <group>
+                        <field name="createdby" />
+                        <field name="assignedto" />
+                    </group>
+                </sheet>
+            </form>
+
+
+        </field>
+    </record>
+
+
+    <!-- kanban -->
+    <record id="view_notes_kanban" model="ir.ui.view">
+        <field name="name">notes.kanban</field>
+        <field name="model">bradford.notes</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <!-- <field name="attach" widget="image" options="{'size': [100,100]}" /> -->
+                <field name="attach" widget="binary" />
+                <field name="name" />
+                <field name="contact" />
+                <field name="relatedto" />
+                <field name="note" />
+                <field name="assignedto" />
+                <field name="createdby" />
+                <field name="exit" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <!-- <div class="oe_kanban_card"> -->
+                            <div>
+                                <field name="attach" widget="binary" />
+                            </div>
+                            <strong>
+                                <field name="name" />
+                            </strong>
+                            <div>
+                                <span class="text-muted">Contact: </span>
+                                <field name="contact" />
+                            </div>
+                            <div>
+                                <span class="text-success">Related to: </span>
+                                <field name="relatedto" />
+                            </div>
+                            <div style="background-color: #f0f8ff; border: 1px solid #007bff; padding: 10px; margin-top: 10px; margin-bottom: 10px; border-radius: 5px;">
+                                <strong style="color: Black;">Note: </strong>
+                                <div style="font-style: italic; margin-top: 5px;">
+                                    <field name="note" />
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <span class="fw-bold fst-italic">Assigned to: </span>
+                                <field name="assignedto" />
+                            </div>
+                            <div>
+                                <span style="color: pink;">Created By: </span>
+                                <field name="createdby" />
+                            </div>
+                            <div>
+                                <span class="text-custom-highlight">Created on: </span>
+                                <field name="exit" />
+                            </div>
+
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="action_notes" model="ir.actions.act_window">
+        <field name="name">Notes</field>
+        <field name="res_model">bradford.notes</field>
+        <field name="view_mode">tree,kanban,form</field>
+    </record>
+
+</odoo>    

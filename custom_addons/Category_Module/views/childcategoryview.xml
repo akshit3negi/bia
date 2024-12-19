@@ -1,0 +1,33 @@
+<odoo>
+
+    <!-- Childcategory Views -->
+    <record id="view_childcategory_tree" model="ir.ui.view">
+        <field name="name">childcategory.tree</field>
+        <field name="model">mymodule.childcategory</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="status"/>
+                <field name="category_id"/>
+                <field name="subcategory_id"/>
+                
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_childcategory_form" model="ir.ui.view">
+        <field name="name">childcategory.form</field>
+        <field name="model">mymodule.childcategory</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="status"/>
+                    <field name="category_id"/>
+                    <field name="subcategory_id"/>
+                </group>
+            </form>
+        </field>
+    </record>
+   
+</odoo>

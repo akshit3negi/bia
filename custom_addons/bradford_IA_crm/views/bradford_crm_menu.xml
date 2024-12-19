@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="action_campaign" model="ir.actions.act_window">
+        <field name="name">Campaign</field>
+        <field name="res_model">bradford.campaign</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <!--  Top menu item  -->
+    <!-- 
+            This menu item's purpose is to overwrite another one defined in
+            the base module in order to set new groups.
+         -->
+
+
+    <menuitem id="crm_menu_root" name="Bradford_IA_CRM" web_icon="crm,static/description/icon.svg"
+        groups="sales_team.group_sale_salesman,sales_team.group_sale_manager" sequence="25" />
+
+    <!--  LEADS (MAIN USER MENU)  -->
+    <menuitem id="crm_menu_leads" name="Leads" parent="crm_menu_root"
+        action="crm.crm_lead_all_leads" groups="crm.group_use_lead" sequence="1" />
+
+    <!--  SALES (MAIN USER MENU)  -->
+    <menuitem id="crm_menu_sales" name="Sales" parent="crm_menu_root" sequence="5" />
+    <menuitem id="menu_crm_opportunities" name="My Pipeline" parent="crm_menu_sales"
+        action="crm.action_your_pipeline" sequence="1" />
+    <menuitem id="crm_lead_menu_my_activities" name="My Activities" parent="crm_menu_sales"
+        groups="sales_team.group_sale_salesman" action="crm.crm_lead_action_my_activities"
+        sequence="2" />
+    <menuitem id="menu_sale_quotations" name="My Quotations" parent="crm_menu_sales" action="sale.action_quotations_with_onboarding"
+        groups="sales_team.group_sale_salesman" sequence="3" />
+    <menuitem id="sales_team_menu_team_pipeline" name="Teams" parent="crm_menu_sales"
+        action="sales_team.crm_team_action_pipeline" groups="sales_team.group_sale_manager"
+        sequence="4" />
+    <menuitem id="res_partner_menu_customer" name="Customers" parent="crm_menu_sales"
+        action="base.action_partner_form" sequence="5" />
+
+    <!-- Meeting -->
+    <menuitem
+        id="menu_event"
+        name="Meetings"
+        action="action_meet"
+        parent="crm_menu_root"
+        sequence="7" />
+
+    <!-- EMPLOYEES -->
+    <menuitem
+        id="crm_menu_employee"
+        name="Employees"
+        parent="crm_menu_root"
+        groups="hr.group_hr_user"
+        sequence="10" />
+    <menuitem
+        id="menu_hr_employee_user"
+        name="Employees"
+        action="hr.open_view_employee_list_my"
+        parent="crm_menu_employee"
+        sequence="1" />
+    <menuitem
+        id="menu_hr_employee_user"
+        name="Employees"
+        action="action_employee_custom"
+        parent="crm_menu_employee"
+        sequence="1" />
+
+    <!--     Notes    -->
+    <menuitem id="menu_notes" name="Notes" action="action_notes" parent="crm_menu_root"
+        sequence="12" />
+
+
+    <!-- calllllllllllllllllll -->
+    <menuitem id="crm_menu_call" name="Calls" parent="crm_menu_root" action="action_call99"
+        sequence="13" />
+
+
+    <!-- Document -->
+    <menuitem
+        id="menu_document"
+        name="Documents"
+        action="action_doc"
+        parent="crm_menu_root"
+        sequence="14" />
+
+    <!-- Task -->
+    <menuitem
+        id="menu_task"
+        name="Tasks"
+        action="action_task"
+        parent="crm_menu_root"
+        sequence="15" />
+
+    <!-- Email Templates -->
+    <menuitem id="menu_email_templates" parent="crm_menu_root"
+        action="mail.action_email_template_tree_all" sequence="16" />
+
+    <!--  REPORTING  -->
+    <menuitem id="crm_menu_report" name="Reporting" parent="crm_menu_root" sequence="20"
+        groups="sales_team.group_sale_salesman" />
+    <menuitem id="crm_menu_forecast" name="Forecast" parent="crm_menu_report"
+        action="crm.action_opportunity_forecast" sequence="1" />
+    <menuitem id="crm_opportunity_report_menu" name="Pipeline" parent="crm_menu_report"
+        action="crm.crm_opportunity_report_action" sequence="2" />
+    <menuitem id="crm_opportunity_report_menu_lead" name="Leads" parent="crm_menu_report"
+        action="crm.crm_opportunity_report_action_lead" sequence="4" />
+    <menuitem id="crm_menu_salesperson" name="Salesperson" action="action_salesperson"
+        parent="crm_menu_report" sequence="3" />
+
+    <!--  CONFIGURATION  -->
+    <menuitem id="crm_menu_config" name="Configuration" parent="crm_menu_root"
+        action="crm.action_your_pipeline" sequence="25" groups="sales_team.group_sale_manager" />
+    <menuitem id="crm_config_settings_menu" name="Settings" parent="crm_menu_config"
+        action="crm.crm_config_settings_action" groups="base.group_system" sequence="0" />
+    <menuitem id="menu_crm_config_opportunity" name="Opportunities" parent="crm_menu_config"
+        sequence="1" groups="sales_team.group_sale_manager" />
+    <menuitem id="crm_team_config" name="Sales Teams" parent="crm_menu_config"
+        action="sales_team.crm_team_action_config" sequence="5" />
+    <menuitem id="crm_team_member_config" name="Teams Members" parent="crm_menu_config"
+        action="sales_team.crm_team_member_action" sequence="6" groups="base.group_no_one" />
+    <menuitem id="crm_team_menu_config_activity_types" name="Activity Types"
+        parent="crm_menu_config" action="sales_team.mail_activity_type_action_config_sales"
+        sequence="10" />
+    <!-- <menuitem id="crm_recurring_plan_menu_config" name="Recurring Plans"
+    parent="crm_menu_config"
+        action="crm.crm_recurring_plan_action" sequence="12"
+        groups="crm.group_use_recurring_revenues" /> -->
+    <menuitem id="menu_crm_config_lead" name="Pipeline" parent="crm_menu_config" sequence="15"
+        groups="sales_team.group_sale_manager" />
+    <menuitem id="menu_crm_lead_stage_act" name="Stages" sequence="0" parent="menu_crm_config_lead"
+        action="crm.crm_stage_action" groups="base.group_no_one" />
+    <menuitem id="menu_crm_lead_categ" name="Tags" action="sales_team.sales_team_crm_tag_action"
+        parent="menu_crm_config_lead" sequence="1" />
+    <menuitem id="menu_crm_lost_reason" name="Lost Reasons" parent="menu_crm_config_lead"
+        action="crm.crm_lost_reason_action" sequence="6" />
+
+
+    <!-- Utility -->
+    <menuitem id="crm_menu_util" name="Utility" parent="crm_menu_root" sequence="30" />
+    <!-- campaign -->
+    <menuitem id="crm_campaign_config" name="Campaign" parent="crm_menu_util"
+        action="action_campaign" groups="sales_team.group_sale_manager" sequence="17" />
+    <!-- Courses -->
+    <menuitem id="menu_course" name="Courses" parent="crm_menu_util" action="action_courses"
+        sequence="19" />
+    <!-- Highest Qualification -->
+    <menuitem id="menu_highest_qualification" name="Highest Qualification" parent="crm_menu_util"
+        action="action_highestqualification"
+        sequence="20" />
+    <!-- Job Title -->
+    <menuitem id="menu_job_title" name="Job Title" parent="crm_menu_util" action="action_jobtitle"
+        sequence="21" />
+    <!-- Program Interested -->
+    <menuitem id="menu_program_interested" name="Program Interested" parent="crm_menu_util"
+        action="action_programinterested"
+        sequence="22" />
+    <!-- Source -->
+    <menuitem id="menu_source" name="Source" parent="crm_menu_util" action="action_source"
+        sequence="24" />
+    <!-- Substatus -->
+    <menuitem id="menu_substatus" name="Substatus" parent="crm_menu_util"
+        action="action_substatus"
+        sequence="26" />
+
+    <!-- University -->
+    <menuitem id="menu_university" name="University" parent="crm_menu_util"
+        action="action_university"
+        sequence="28" />
+    <!-- Work Experience -->
+    <menuitem id="menu_work_experience" name="Work Experience" parent="crm_menu_util"
+        action="action_workexperience"
+        sequence="30" />
+
+    <!-- <menuitem id="menu_import_crm" name="Import &amp; Synchronize" parent="crm_menu_root"
+        sequence="50" /> -->
+
+
+</odoo>

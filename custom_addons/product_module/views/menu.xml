@@ -1,0 +1,13 @@
+<odoo>
+
+    <record id="action_product" model="ir.actions.act_window">
+        <field name="name">Product</field>
+        <field name="res_model">module.product</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_product_root" name="Products" sequence="10"/>
+    <menuitem id="menu_product" name="Projects" parent="menu_product_root" action="action_product" sequence="20"/>
+
+ 
+</odoo>

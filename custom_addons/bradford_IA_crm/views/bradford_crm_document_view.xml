@@ -1,0 +1,99 @@
+<odoo>
+    <record id="crm_doc_form_view" model="ir.ui.view">
+        <field name="name">doc.form</field>
+        <field name="model">bradford.document</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <separator string="Overview" colspan="4" />
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="upload" widget="binary" />
+                            <field name="doctype" />
+                            <field name="pubdate" placeholder="MM/DD/YYYY HH:MM:SS" />
+                            <field name="category" />
+                        </group>
+                        <group>
+                            <field name="status" />
+                            <field name="revision" />
+                            <field name="template" />
+                            <field name="expdate" placeholder="MM/DD/YYYY HH:MM:SS" />
+                            <field name="subcategory" />
+                        </group>
+                    </group>
+                    <separator colspan="2" />
+                    <field name="description" placeholder="Description" />
+                    <separator colspan="2" />
+                    <group>
+                        <group>
+                            <field name="relateddoc" />
+                            <field name="assigned" />
+                        </group>
+                        <group>
+                            <field name="relateddocrevision" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id='crm_doc_tree_view' model="ir.ui.view">
+        <field name="name">doc.tree</field>
+        <field name="model">bradford.document</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="upload" />
+                <field name="category" />
+                <field name="subcategory" />
+                <field name="relateddoc" />
+                <field name="expdate" />
+                <field name="assigned" />
+                <field name="createdon" />
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="crm_doc_kanban_view" model="ir.ui.view">
+        <field name="name">doc.kanban</field>
+        <field name="model">bradford.document</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="upload" widget="binary"/>
+                <field name="category"/>
+                <field name="subcategory"/>
+                <field name="pubdate"/>
+                <field name="expdate"/>
+                <field name="assigned"/>
+                <field name="createdon"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <!-- <div class="oe_kanban_global_click"> -->
+                        <div class="oe_kanban_card">
+                            <strong><field name="name"/></strong>
+                            <div><field name="upload" widget="binary"/></div>
+                            <div><span>Category: </span><field name="category"/></div>
+                            <div><span>Sub-Category: </span><field name="subcategory"/></div>
+                            <div><span>Publish Date: </span><field name="pubdate"/></div>
+                            <div><span>Expiration Date: </span><field name="expdate"/></div>
+                            <div><span>Assigned To: </span><field name="assigned"/></div>
+                            <div><span>Created On: </span><field name="createdon"/></div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+    <record id="action_doc" model="ir.actions.act_window">
+        <field name="name">Document</field>
+        <field name="res_model">bradford.document</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+</odoo>

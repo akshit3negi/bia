@@ -1,0 +1,15 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bradford_substatus,access_bradford_substatus,model_bradford_substatus,base.group_user,1,1,1,1
+access_campaign,access_campaign,model_bradford_campaign,base.group_user,1,1,1,1
+access_HighestQualification,access_HighestQualification,model_bradford_highestqualification,base.group_user,1,1,1,1
+access_bradford_jobtitle,access_bradford_jobtitle,model_bradford_jobtitle,base.group_user,1,1,1,1
+access_bradford_programinterested,access_bradford_programinterested,model_bradford_programinterested,base.group_user,1,1,1,1
+access_bradford_university,access_bradford_university,model_bradford_university,base.group_user,1,1,1,1
+access_bradford_workexperience,access_bradford_workexperience,model_bradford_workexperience,base.group_user,1,1,1,1
+access_Source,access_Source,model_bradford_source,base.group_user,1,1,1,1
+access_courses,access_courses,model_bradford_courses,base.group_user,1,1,1,1
+access_notes,access_notes,model_bradford_notes,base.group_user,1,1,1,1
+access_document,access_document,model_bradford_document,base.group_user,1,1,1,1
+access_meet,access_meet,model_bradford_meet,base.group_user,1,1,1,1
+access_task,access_task,model_bradford_task,base.group_user,1,1,1,1
+access_call,access_call,model_bradford_call,base.group_user,1,1,1,1

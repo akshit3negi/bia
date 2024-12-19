@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_category_model,access_category_model,model_category_model,,1,1,1,1
+access_subcategory_model,access_subcategory_model,model_subcategory_model,,1,1,1,1
+access_childcategory_model,access_childcategory_model,model_childcategory_model,,1,1,1,1

@@ -1,0 +1,159 @@
+<odoo>
+    <record id="meet_form_view" model="ir.ui.view">
+        <field name="name">meet.form</field>
+        <field name="model">bradford.meet</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="stage" widget="statusbar" options="{'clickable': True}" />
+                </header>
+                <sheet>
+                    <separator string="Overview" />
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="startdate" placeholder="MM/DD/YYYY HH:MM:SS" />
+                            <field name="enddate" placeholder="MM/DD/YYYY HH:MM:SS" />
+                            <field name="duration" />
+                            <field name="reminduser" widget="many2many_tags"
+                                placeholder="Add customers" />
+                            <button name="action_send_invitations" type="object" string="Send"
+                                class="btn-primary" icon="fa-envelope"/>
+                        </group>
+                        <group>
+                            <!-- <field name="stage" widget="statusbar" options="{'clickable':
+                            True}" /> -->
+                            <field name="relatedto" />
+                            <field name="venue" widget="CopyClipboardChar" />
+                            <field name="descrip" placeholder="Description" />
+                            <field name="hrbefore" placeholder="Sends email before the meeting Starts" />
+                            <field name="cancelled" />
+                        </group>
+                    </group>
+                    <separator string="Other" />
+                    <group>
+                        <field name="assignedto" />
+                        <field name="createdon" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="meet_tree_view" model="ir.ui.view">
+        <field name="name">meet.tree</field>
+        <field name="model">bradford.meet</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="createdon" />
+                <field name="name" />
+                <field name="startdate" />
+                <field name="enddate" />
+                <field name="duration" />
+                <field name="reminduser" />
+                <field name="descrip" />
+                <field name="stage" />
+                <field name="cancelled" />
+                <field name="relatedto" />
+                <field name="venue" />
+                <field name="assignedto" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="meet_kanban_view" model="ir.ui.view">
+        <field name="name">meet.kanabn</field>
+        <field name="model">bradford.meet</field>
+        <field name="arch" type="xml">
+            <!-- <kanban default_group_by="status"> -->
+            <kanban class="o_event_kanban_view" default_group_by="stage">
+                <!-- quick_create_view="event.event_event_view_form_quick_create" sample="1"> -->
+                <field name="name" />
+                <field name="stage" />
+                <field name="cancelled" />
+                <field name="startdate" />
+                <field name="enddate" />
+                <field name="relatedto" />
+                <field name="venue" />
+                <field name="duration" />
+                <field name="reminduser" />
+                <field name="descrip" />
+                <field name="assignedto" />
+                <field name="createdon" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div
+                            t-attf-class="d-flex flex-column p-0 oe_kanban_card oe_kanban_global_click">
+                             <!-- <div t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}} oe_semantic_html_override oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}"> -->
+                            
+                            <!-- <div class="oe_dropdown_kanban">
+                            <div class="oe_dropdown_toggle"> 
+                            <i class="fa fa-bars fa-lg" title="Manage" aria-label="Manage"/>
+                            <ul class="oe_dropdown_menu" style="display: none;">
+                            <li><a type="delete">Delete</a></li>
+                            <li><ul class="oe_kanban_colorpicker"/></li></ul>
+                            </div>
+                            <div class="oe_clear"></div>
+                            </div> -->
+
+                            <div
+                                class="o_kanban_content p-0 m-0 position-relative row d-flex flex-fill">
+                                <div
+                                    class="col-3 text-bg-primary p-2 text-center d-flex flex-column justify-content-center">
+                                    <div
+                                        t-esc="luxon.DateTime.fromISO(record.startdate.raw_value).toFormat('d MMM yyyy')"
+                                        class="o_event_fontsize_20" />
+                                    <!-- <div>
+                                        <t
+                                            t-esc="luxon.DateTime.fromISO(record.startdate.raw_value).toFormat('MMM yyyy')" />
+                                    </div> -->
+                                    <div>
+                                        <t
+                                            t-esc="luxon.DateTime.fromISO(record.startdate.raw_value).toFormat('t')" />
+                                    </div>
+                                    <div
+                                        t-if="record.startdate.raw_value !== record.enddate.raw_value">
+                                        <i class="fa fa-arrow-right me-2 o_event_fontsize_09"
+                                            title="End date" />
+                                        <t
+                                            t-esc="luxon.DateTime.fromISO(record.enddate.raw_value).toFormat('d MMM yyyy')" />
+                                        </div>
+                                        <div>
+                                        <t
+                                            t-esc="luxon.DateTime.fromISO(record.enddate.raw_value).toFormat('t')" />
+                                    </div>
+                                </div>
+                                <div
+                                    class="col-9 py-2 px-3 d-flex flex-column justify-content-between pt-3">
+                                    <div>
+                                        <div class="o_kanban_record_title o_text_overflow"
+                                            t-att-title="record.name.value">
+                                            <field name="name" />
+                                        </div>
+                                        <div t-if="record.venue.value" class="d-flex">
+                                            <i class="fa fa-map-marker mt-1 me-1" title="Venue" />
+                                            <span t-esc="record.venue.value" />
+                                        </div>
+                                    </div>
+                                    <div class="o_kanban_record_bottom">
+                                        <div class="oe_kanban_bottom_left">
+                                            <label for="cancelled" style="margin: 10px;">Cancelled</label>
+                                            <field name="cancelled" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_meet" model="ir.actions.act_window">
+        <field name="name">Meeting</field>
+        <field name="res_model">bradford.meet</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+</odoo>

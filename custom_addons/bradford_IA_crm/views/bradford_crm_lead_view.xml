@@ -1,0 +1,61 @@
+<odoo>
+    <record id="view_crm_lead_form_custom" model="ir.ui.view">
+        <field name="name">crm.partner.form.custom</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='company_type']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//div[@class='o_row']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='vat']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='website']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='title']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='category_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+            <xpath expr="//notebook" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+
+
+            <xpath expr="//form/sheet/group" position="after">
+                <group>
+                    <field name="assigned_to"/>
+                    <field name="source"/>
+                    <field name="highest_qualification"/>
+                    <field name="work_experience"/>
+                    <field name="program"/>
+                    <field name="campaign"/>
+                    <field name="lead_status"/>
+                    <field name="sub_status"/> 
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_crm_lead_tree_custom" model="ir.ui.view">
+        <field name="name">crm.partner.tree.custom</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree" />
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <field name="name" />
+                <field name="email" />
+                <field name="program"/>
+                <field name="lead_status"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

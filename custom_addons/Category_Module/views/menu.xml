@@ -1,0 +1,37 @@
+<odoo>
+ 
+    <!-- Action for Categories -->
+    <record id="action_category" model="ir.actions.act_window">
+        <field name="name">Categories</field>
+        <field name="res_model">mymodule.category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+ 
+    <!-- Action for Subcategories -->
+    <record id="action_subcategory" model="ir.actions.act_window">
+        <field name="name">Subcategories</field>
+        <field name="res_model">mymodule.subcategory</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+ 
+     <!-- Action for child categories -->
+    <record id="action_childcategory" model="ir.actions.act_window">
+        <field name="name">Childcategories</field>
+        <field name="res_model">mymodule.childcategory</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+ 
+    <!-- Main menu for Category Management -->
+    <menuitem id="menu_category_management" name="Category Management" sequence="10"/>
+ 
+   
+    <!-- Submenu for Subcategories -->
+    <menuitem id="menu_subcategory" name="Subcategories" parent="menu_category_management" action="action_subcategory" sequence="20"/>
+ 
+  <!-- Submenu for Categories -->
+    <menuitem id="menu_category" name="Categories" parent="menu_category_management" action="action_category" sequence="30"/>
+ 
+    <!-- Submenu for Child categories -->
+    <menuitem id="menu_childcategory" name="Childcategories" parent="menu_category_management" action="action_childcategory" sequence="40"/>
+ 
+</odoo>

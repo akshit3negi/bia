@@ -1,0 +1,57 @@
+<odoo>
+    <record id="view_substatus_tree" model="ir.ui.view">
+        <field name="name">substatus.tree</field>
+        <field name="model">sub.status</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="state" />
+                <field name="mainstatus_var"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_substatus_form" model="ir.ui.view">
+        <field name="name">substatus.form</field>
+        <field name="model">sub.status</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name" />
+                    <field name="state" />
+                    <field name="mainstatus_var"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+<!-- kanban -->
+<record id="view_substatus_kanban" model="ir.ui.view">
+    <field name="name">substatus.kanban</field>
+    <field name="model">sub.status</field>
+    <field name="arch" type="xml">
+        <kanban>
+            <field name="name" />
+            <field name="state" />
+            <field name="mainstatus_var"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click">
+                    <!-- <div class="oe_kanban_card"> -->
+                        <div class="card">
+                            
+                            <strong><field name="name" /></strong>
+                            <ul><li><div>State: <field name="state" /></div></li>
+                            <li><div>Mian-Status: <field name="mainstatus_var"/></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+
+
+</odoo>

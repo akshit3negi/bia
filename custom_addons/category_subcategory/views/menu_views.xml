@@ -1,0 +1,9 @@
+<odoo>
+    <menuitem id="menu_category_root" name="Category Management" sequence="1"/>
+    
+    <menuitem id="menu_category" name="Category" parent="menu_category_root" action="category_subcategory.action_category" sequence="2"/>
+    
+    <menuitem id="menu_subcategory" name="Subcategory" parent="menu_category_root" action="category_subcategory.action_subcategory" sequence="3"/>
+    
+    <menuitem id="menu_childcategory" name="Childcategory" parent="menu_category_root" action="category_subcategory.action_childcategory" sequence="4"/>
+</odoo>

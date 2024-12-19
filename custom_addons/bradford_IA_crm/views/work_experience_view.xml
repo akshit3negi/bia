@@ -1,0 +1,56 @@
+<odoo>
+    <record id="view_workexperience_tree" model="ir.ui.view">
+        <field name="name">workexperience.tree</field>
+        <field name="model">bradford.workexperience</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_workexperience_form" model="ir.ui.view">
+        <field name="name">workexperience.form</field>
+        <field name="model">bradford.workexperience</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name" />
+                    <field name="state" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+<!-- kanban -->
+<!-- <record id="view_workexperience_kanban" model="ir.ui.view">
+    <field name="name">workexperience.kanban</field>
+    <field name="model">bradford.workexperience</field>
+    <field name="arch" type="xml">
+        <kanban>
+            <field name="name" />
+            <field name="state" />
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_card">
+                        <div class="card">
+                            <strong><field name="name" /></strong>
+                            <ul><li><div>State: <field name="state" /></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record> -->
+
+<record id="action_workexperience" model="ir.actions.act_window">
+        <field name="name">Work Experience</field>
+        <field name="res_model">bradford.workexperience</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

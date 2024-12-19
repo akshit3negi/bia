@@ -1,0 +1,57 @@
+<odoo>
+    <record id="view_programinterested_tree" model="ir.ui.view">
+        <field name="name">programinterested.tree</field>
+        <field name="model">bradford.programinterested</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_programinterested_form" model="ir.ui.view">
+        <field name="name">programinterested.form</field>
+        <field name="model">bradford.programinterested</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name" />
+                    <field name="state" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+<!-- kanban -->
+<!-- <record id="view_programinterested_kanban" model="ir.ui.view">
+    <field name="name">programinterested.kanban</field>
+    <field name="model">bradford.programinterested</field>
+    <field name="arch" type="xml">
+        <kanban>
+            <field name="name" />
+            <field name="state" />
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_card">
+                        <div class="card">
+                            
+                            <strong><field name="name" /></strong>
+                            <ul><li><div>State: <field name="state" /></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record> -->
+
+<record id="action_programinterested" model="ir.actions.act_window">
+        <field name="name">Program Interested</field>
+        <field name="res_model">bradford.programinterested</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

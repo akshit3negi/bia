@@ -1,0 +1,13 @@
+<odoo>
+ 
+    <record id="action_notes" model="ir.actions.act_window">
+        <field name="name">Notes</field>
+        <field name="res_model">bia.notes</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+ 
+    <menuitem id="menu_notes_root" name="Bradford Notes" sequence="10"/>
+ 
+    <menuitem id="menu_notes_note" name="Notes" parent="menu_notes_root" action="action_notes" sequence="20"/>
+ 
+</odoo>

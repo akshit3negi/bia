@@ -1,0 +1,56 @@
+<odoo>
+
+    <record id="view_mainstatus_tree" model="ir.ui.view">
+        <field name="name">mainstatus.tree</field>
+        <field name="model">main.status</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_mainstatus_form" model="ir.ui.view">
+        <field name="name">mainstatus.form</field>
+        <field name="model">main.status</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name" />
+                    <field name="state" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- kanban -->
+    <record id="view_mainstatus_kanban" model="ir.ui.view">
+        <field name="name">mainstatus.kanban</field>
+        <field name="model">main.status</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name" />
+                <field name="state" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                        <!-- <div class="oe_kanban_card"> -->
+                            <div class="card">
+                                <strong>
+                                    <field name="name" />
+                                </strong>
+                                <div>
+                                    State: <field name="state" />
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+</odoo>    

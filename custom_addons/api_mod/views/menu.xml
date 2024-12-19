@@ -1,0 +1,9 @@
+<odoo>
+    <record id="action_users" model="ir.actions.act_window">
+        <field name="name">UserAPI</field>
+        <field name="res_model">users.custom</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_users_root" name="UsersAPI" sequence="10"/>
+    <menuitem id="menu_users" name="UsersAPI" parent="menu_users_root" action="action_users" sequence="20"/>
+</odoo> 

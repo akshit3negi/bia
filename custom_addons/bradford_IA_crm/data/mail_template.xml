@@ -1,0 +1,48 @@
+<odoo>
+    <record id="email_template_invitation" model="mail.template">
+        <field name="name">Invitation Email</field>
+        <field name="model_id" ref="model_bradford_meet" /> <!-- Replace with your model's ID -->
+        <field name="subject">You're Invited!</field>
+        <field name="email_to">{{object.email}}</field>
+        <field name="body_html">
+            <![CDATA[
+            <html>
+            <head>
+            </head>
+            <p>Hello,</p>
+            <p>You are invited to participate in '${object.name}'.</p>
+            <p>Meeting Details:</p>
+            <table style="border-collapse: collapse; width: auto;">
+            <tr>
+            <th style="border: 1px solid black; padding: 5px;">Title:</th>
+            <td style="border: 1px solid black; padding: 5px;">${object.name}</td>
+            </tr>
+            <tr>
+            <th style="border: 1px solid black; padding: 5px;">Venue:</th>
+            <td style="border: 1px solid black; padding: 5px;">${object.venue}</td>
+            </tr>
+            <tr>
+            <th style="border: 1px solid black; padding: 5px;">Start Date & Time:</th>
+            <td style="border: 1px solid black; padding: 5px;">${startdate_local}</td>
+            </tr>
+            <tr>
+            <th style="border: 1px solid black; padding: 5px;">End Date & Time:</th>
+            <td style="border: 1px solid black; padding: 5px;">${enddate_local}</td>
+            </tr>
+            <tr>
+            <th style="border: 1px solid black; padding: 5px;">Duration:</th>
+            <td style="border: 1px solid black; padding: 5px;">${object.duration}</td>
+            </tr>
+            <tr>
+            <th style="border: 1px solid black; padding: 5px;">Description:</th>
+            <td style="border: 1px solid black; padding: 5px;">${object.descrip}</td>
+            </tr>
+            </table>
+            <p><br>Please attend the meeting and share your valuable insights.</p>
+            <p><br>Best regards,<br/>Odoo (localhost)</p>
+            </body>
+            </html>
+            ]]>
+        </field>
+    </record>
+</odoo>

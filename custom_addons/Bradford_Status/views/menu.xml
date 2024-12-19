@@ -1,0 +1,21 @@
+<odoo>
+ 
+    <record id="action_mainstatus" model="ir.actions.act_window">
+        <field name="name">Main-Status</field>
+        <field name="res_model">main.status</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+ 
+    <record id="action_substatus" model="ir.actions.act_window">
+        <field name="name">Sub-Status</field>
+        <field name="res_model">sub.status</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+ 
+    <menuitem id="menu_status" name="Bradford Status" sequence="10"/>
+ 
+    <menuitem id="menu_main" name="Main-Staus" parent="menu_status" action="action_mainstatus" sequence="20"/>
+ 
+    <menuitem id="menu_sub" name="Sub-Status" parent="menu_status" action="action_substatus" sequence="30"/>
+ 
+</odoo>

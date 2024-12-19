@@ -1,0 +1,10 @@
+<odoo>
+    <record id="action_user" model="ir.actions.act_window">
+        <field name="name">User</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">module.user</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+    <menuitem id="menu_user_root" name="User" sequence="10"/>
+    <menuitem id="menu_user" name="User" parent="menu_user_root" action="action_user" sequence="20"/>
+</odoo>

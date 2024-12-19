@@ -1,0 +1,63 @@
+<odoo>
+    <record id="view_courses_tree" model="ir.ui.view">
+        <field name="name">courses.tree</field>
+        <field name="model">bradford.courses</field>
+        <field name="arch" type="xml">
+            <tree string="Course">
+                <field name="name" />
+                <field name="state" />
+                <!-- <field name="university"/> -->
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_courses_form" model="ir.ui.view">
+        <field name="name">courses.form</field>
+        <field name="model">bradford.courses</field>
+        <field name="arch" type="xml">
+            <form string="Course">
+                <sheet>
+                <group>
+                    <field name="name" />
+                    <field name="state" />
+                    <!-- <field name="university"/> -->
+                </group>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+
+<!-- kanban -->
+<!-- <record id="view_courses_kanban" model="ir.ui.view">
+    <field name="name">courses.kanban</field>
+    <field name="model">bradford.courses</field>
+    <field name="arch" type="xml">
+        <kanban>
+            <field name="name" />
+            <field name="state" />
+            <field name="university"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_card">
+                        <div class="card">
+                            
+                            <strong><field name="name" /></strong>
+                            <ul><li><div>State: <field name="state" /></div></li>
+                                <li><div>University: <field name="university"/></div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record> -->
+
+<record id="action_courses" model="ir.actions.act_window">
+        <field name="name">Courses</field>
+        <field name="res_model">bradford.courses</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

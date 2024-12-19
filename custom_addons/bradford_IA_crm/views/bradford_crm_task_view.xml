@@ -1,0 +1,60 @@
+<odoo>
+    <record id="task_form_view" model="ir.ui.view">
+        <field name="name">task.form</field>
+        <field name="model">bradford.task</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="status" widget="statusbar" options="{'clickable': True}" />
+                </header>
+                <sheet>
+                    <separator string="Task Overview" />
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="startdate" placeholder="MM/DD/YYYY HH:MM:SS" />
+                            <field name="duedate" placeholder="MM/DD/YYYY HH:MM:SS" />
+                        </group>
+                        <group>
+                            <field name="relatedto" />
+                            <field name="contact" />
+                            <field name="priority" widget="priority"/>
+                        </group>
+                        <field name="descrip" placeholder="Description" />
+                    </group>
+                    <separator string="Other" />
+                    <group>
+                        <field name="assignedto" />
+                        <field name="createdon" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="task_tree_view" model="ir.ui.view">
+        <field name="name">task.tree</field>
+        <field name="model">bradford.task</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="createdon" />
+                <field name="name" />
+                <field name="startdate" />
+                <field name="duedate" />
+                <field name="descrip" />
+                <field name="status" />
+                <field name="priority"/>
+                <field name="relatedto" />
+                <field name="assignedto" />
+            </tree>
+        </field>
+    </record>
+
+
+
+    <record id="action_task" model="ir.actions.act_window">
+        <field name="name">Tasks</field>
+        <field name="res_model">bradford.task</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

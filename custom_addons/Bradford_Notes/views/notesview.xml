@@ -1,0 +1,77 @@
+<odoo>
+
+    <record id="view_notes_tree" model="ir.ui.view">
+        <field name="name">notes.tree</field>
+        <field name="model">bia.notes</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="contact" />
+                <field name="relatedto" />
+                <field name="attach"  widget="image" options="{'size': [75,75]}"/>
+                <field name="note" />
+                <field name="assignedto" />
+                <field name="createdby" />
+                <field name="exit" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_notes_form" model="ir.ui.view">
+        <field name="name">notes.form</field>
+        <field name="model">bia.notes</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                <field name="name" />
+                <field name="contact" />
+                <field name="relatedto" />
+                <field name="attach" widget="binary"/>
+                <field name="note" />
+                <field name="assignedto" />
+                <field name="createdby" />
+                <field name="exit" />
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+    <!-- kanban -->
+    <record id="view_notes_kanban" model="ir.ui.view">
+        <field name="name">notes.kanban</field>
+        <field name="model">bia.notes</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="attach"  widget="image" options="{'size': [100,100]}"/>
+                <field name="name" />
+                <field name="contact" />
+                <field name="relatedto" />
+                <!-- <field name="attach"  widget="image"/> -->
+                <field name="note" />
+                <field name="assignedto" />
+                <field name="createdby" />
+                <field name="exit" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                        <!-- <div class="oe_kanban_card"> -->
+                                <div><field name="attach" widget="image" options="{'size': [100,100]}"/></div>
+                                <strong><field name="name" /></strong>
+                                <div><field name="contact" /></div>
+                                <div><field name="relatedto" /></div>
+                                <!-- <div><field name="attach" widget="image"/></div> -->
+                                <div><field name="note" /></div>
+                                <div><field name="assignedto" /></div>
+                                <div><field name="createdby" /></div>
+                                <div><field name="exit" /></div>
+                            
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+
+</odoo>    
