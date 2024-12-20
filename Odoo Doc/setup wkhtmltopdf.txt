@@ -1,0 +1,10 @@
+--->>>> Setup Wkhtmltopdf <<<<---
+
+	-> Download Wkhtmltopdf: https://wkhtmltopdf.org/downloads.html
+	-> Set path to System Enviornment Variable (e.g. path- C:\Program Files\wkhtmltopdf\bin).
+	-> Run localhost:8069
+	-> locate Settings > Technical > Parameters > System Parameters:
+		-> Add new record:
+			name: webkit_path
+			value: path_to_wkhtmltopdf_file/wkhtmltopdf (e.g.- 'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf')
+	-> Restart VSCode, localhost:8069 or PC.

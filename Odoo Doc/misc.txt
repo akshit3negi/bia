@@ -1,0 +1,83 @@
+
+INTERNAL SERVER ERROR:
+	--> npm install -g less less-plugin-clean-css
+
+	--> ( Clear views and templates cache )
+	python odoo-bin -d <your_database_name> -u all --stop-after-init
+
+	-->( update module list manually )
+	python odoo-bin -u all -d DB1
+
+	-->( run odoo )
+	python odoo-bin -c C:\Users\Redian\Documents\odoo-new\odoo-16.0\odoo.conf
+
+
+	-->( to uninstall website module )
+	UPDATE ir_module_module SET state = 'uninstalled' WHERE name = 'website';
+
+
+Query for module view:
+	SELECT name, state FROM ir_module_module WHERE state IN ('installed', 'to upgrade', 'to remove');
+	SELECT name, state FROM ir_module_module WHERE state = 'uninstalled';
+	DELETE FROM ir_module_module WHERE name IN ('module_name_1', 'module_name_2');
+	DELETE FROM ir_model_data WHERE module IN ('module_name_1', 'module_name_2');
+	SELECT name, state FROM ir_module_module WHERE state = 'uninstalled';
+
+
+
+
+--->>> Form view Tabs: <<<---
+
+          <form>
+                <notebook>
+                    <page string="New Note">
+                        <group>
+                            <group>
+                                <field name="name" />
+                                <field name="contact" />
+                                <field name="attach" widget="binary" />
+                                <field name="note" />
+                                <field name="createdby" />
+                            </group>
+                            <group>
+                                <field name="relatedto" />
+                            </group>
+                        </group>
+                    </page>
+                    <page string="Other Details">
+                        <group>
+                            <field name="exit" />
+                            <field name="assignedto" />
+                        </group>
+                    </page>
+                </notebook>
+            </form>
+
+
+
+--->>> Form view Seperators: <<<---
+
+           <form>
+                <sheet>
+                    <separator string="New Note" colspan="4" />
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="contact" />
+                            <field name="attach" widget="binary" />
+                        </group>
+                        <group>
+                            <field name="exit" />
+                            <field name="relatedto" />
+                        </group>
+                    </group>
+                    <group>
+                        <field name="note" />
+                    </group>
+                    <separator string="Other" colspan="4" />
+                    <group>
+                        <field name="createdby" />
+                        <field name="assignedto" />
+                    </group>
+                </sheet>
+            </form>

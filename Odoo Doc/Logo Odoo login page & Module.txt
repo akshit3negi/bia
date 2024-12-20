@@ -1,0 +1,9 @@
+----->>>>> Odoo Initial Login Page Logo
+	-> Settings/General Settings/Companies/: 
+		-> Find & click- 'Update Info'.
+		-> Change Company name and logo.
+
+
+----->>>>> Odoo Custom Module Logo
+	-> custom_addons/<your module>/static/description/icon.png
+		-> make sure the file name is 'icon.png'

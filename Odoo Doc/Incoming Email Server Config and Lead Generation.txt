@@ -1,0 +1,33 @@
+Incoming Email to Lead:
+
+-> Run locahost:8069
+-> Activate Debugging mode
+-> Install CRM App
+
+-> Navigate: CRM/Configuration/Settings, and Mark the checkbox named 'Lead'.
+
+-> Navigate: Settings/General Settings/Discuss/Custom Email Server, Set Alias Domain@ to 'rediansoftware.com'.
+
+-> Navigate: Settings/Technical/Email/Incoming Mail Server,
+
+	     Create New: Server Type: IMAP Server
+			 Server Name: imap.gmail.com
+			 Port: 993
+			 Check Mark SSL/TLS
+			 Username: <your gmail email >
+			 Password: <use app specific password, refer the link given at the end>
+			 Create a New Record: Lead/Opportunity
+	     Then click 'Test & Confirm'
+
+
+-> Check Aliased Model: navigate Setting/Technical/Eamil/Aliases, Aliased Model should be Lead/Opportunity.
+
+-> Now Send Email to '<your gmail email(the one mentioned in the Server Name)>', and click on 'Fetch Now' in Incoming Mail Server Record.
+
+-> Then navigate CRM/Leads, and find the record with name same as Subject of the Email sent.
+
+
+For App Specific password:
+-> First Enable the 2 Step Verification.
+-> Then goto the provided link and create a app specific password:
+	->https://myaccount.google.com/apppasswords?pli=1&rapt=AEjHL4PSYpWQakutMgckYyfaRUi9ieYBmL-v0Ve8SjSNAJX7e_WtzDVGv59PYpmZx6d5phGfwPre2s2uSVYoJ_0yu6tLHZkFPgPPxcB1D8HxUM3fzazk8IM

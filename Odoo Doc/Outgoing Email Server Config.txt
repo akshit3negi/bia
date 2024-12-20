@@ -1,0 +1,22 @@
+Outgoing Email Server Configuration:
+
+-> Run locahost:8069
+-> Activate Debugging mode
+
+-> Navigate: Settings/Technical/Email/Outgoing Mail Server,
+
+	     Create New: 
+			 Authenticate with: Username
+			 Check Mark TLS (STARTTLS)
+			 SMTP Server: smtp.gmail.com
+			 Port: 587
+			 Username: <your email >
+			 Password: <use app specific password, refer the link given at the end>
+			 Check Mark Debugging
+	     
+		Then click 'Test Connection'
+
+For App Specific password:
+-> First Enable the 2 Step Verification.
+-> Then goto the provided link and create a app specific password:
+	->https://myaccount.google.com/apppasswords?pli=1&rapt=AEjHL4PSYpWQakutMgckYyfaRUi9ieYBmL-v0Ve8SjSNAJX7e_WtzDVGv59PYpmZx6d5phGfwPre2s2uSVYoJ_0yu6tLHZkFPgPPxcB1D8HxUM3fzazk8IM

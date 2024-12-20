@@ -1,0 +1,31 @@
+<graph string="Employee and Revenue Statistics" type="line" stacked="True" disabled_linking="True" limit="12">
+    <!-- X-Axis Grouping -->
+    <field name="date" type="row" interval="month" />
+    
+    <!-- Multiple Measures (Y-Axis) -->
+    <field name="employee_count" type="measure" string="Employee Count" />
+    <field name="revenue" type="measure" string="Revenue" />
+    <field name="profit" type="measure" string="Profit" />
+    
+    <!-- Row Grouping (X-Axis) -->
+    <field name="department_id" type="row" />
+    
+    <!-- Filter by Department and State -->
+    <filter name="department_filter" string="Department" domain="[('department_id', '=', department_id)]" />
+    <filter name="state_filter" string="State" domain="[('state', '=', 'active')]" />
+    
+    <!-- Styling with Widget (Color-coded by State) -->
+    <field name="state" widget="color" />
+    
+    <!-- Custom Tooltip Display -->
+    <field name="employee_count" tooltip="Number of Employees" />
+    <field name="revenue" tooltip="Total Revenue" />
+    
+    <!-- Sorting and Limiting Results -->
+    <order name="date" />
+    <limit value="12" />
+    
+    <!-- Adding Additional Customizations -->
+    <scale>linear</scale>
+    <colors>#FF5733, #33FF57, #3357FF</colors>  <!-- Custom colors for different measures -->
+</graph>
